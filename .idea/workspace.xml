@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03e4cc16-c28f-46f1-82d4-4aa3ad2a60f3" name="Changes" comment="new">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/CopilotIndices/17.13.444.19527/CodeChunks.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/CopilotIndices/17.13.444.19527/CodeChunks.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/CopilotIndices/17.13.444.19527/SemanticSymbols.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/CopilotIndices/17.13.444.19527/SemanticSymbols.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/FileContentIndex/ec98cce3-f8a5-4935-86ed-1da9704e5cd4.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/v17/.wsuo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/v17/.wsuo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/v17/DocumentLayout.backup.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/v17/DocumentLayout.backup.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/CMMS_by_RafalS/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmms.db" beforeDir="false" afterPath="$PROJECT_DIR$/cmms.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/failure_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/failure_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/failure_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/failure_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +38,15 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "RafalSa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RafalSa&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/RafalSa/CMMS_by_RafalS",
+    "url": "https://github.com/RafalSa/CMMS_by_RafalS.git",
     "accountId": "ee34d9e6-0ca2-466d-9113-92752c4ad6d1"
   }
 }]]></component>
@@ -58,7 +68,7 @@
     "Python.setup_db.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -234,11 +244,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/db_utils.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/register_window.py</url>
           <line>56</line>
