@@ -92,20 +92,17 @@ def show_failure_window(username, back_to_menu_func):
         except Exception as e:
             messagebox.showerror("Błąd", str(e))
 
-    def show_history():
-        failures = db_utils.get_failure_history()
-        if not failures:
-            messagebox.showinfo("Historia", "Brak zapisanych awarii.")
-            return
-
-        history_window = tk.Toplevel(window)
+    def show_history(self):
+        history_window = tk.Toplevel(self.master)
         history_window.title("Historia awarii")
-        history_window.geometry("1200x600")
-        text = tk.Text(history_window, wrap="word")
-        text.pack(expand=True, fill=tk.BOTH)
 
+        text = tk.Text(history_window, wrap=tk.WORD, width=100)
+        text.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+        failures = db_utils.get_failure_history()
         for f in failures:
-            text.insert(tk.END, "\n".join([f"{key}: {value}" for key, value in zip(db_utils.FAILURE_FIELDS, f)]) + "\n\n")
+            text.insert(tk.END,
+                        "\n".join([f"{key}: {value}" for key, value in zip(db_utils.FAILURE_FIELDS, f)]) + "\n\n")
 
     # Przyciski
     btn_frame = ttk.Frame(main_frame)
