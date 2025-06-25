@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tasks_window import show_tasks_window
 from print_tasks_window import show_print_tasks_window
-from failure_window import show_failure_window
+from failure_window import open_failure_window as show_failure_window
 from inventory_window import show_inventory_window
 import login_window
 
