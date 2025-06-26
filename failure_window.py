@@ -4,19 +4,17 @@ import db_utils
 from datetime import datetime
 
 class FailureWindow(ctk.CTkToplevel):
-    def __init__(self, master, username):
-        super().__init__(master)
-        self.title("Zgłaszanie awarii")
-        self.geometry("600x900")
-        self.configure(fg_color="#2b2b2b")  # Ciemne tło
+    def __init__(self, username, return_callback):
+        super().__init__()  # NIE przekazujemy master — Toplevel samodzielne
+        self.return_callback = return_callback
         self.username = username
+        self.title("Zgłoszenie awarii - CMMS by RafałS")
+        self.geometry("1200x900")  # FullHD: 1920x1080 z zapasem
+        self.resizable(False, False)
 
-        # Główna ramka z przewijaniem
-        self.scrollable_frame = ctk.CTkScrollableFrame(self, fg_color="#2b2b2b", width=580, height=800)
-        self.scrollable_frame.pack(pady=10, padx=10, fill="both", expand=True)
-
-        self.header = ctk.CTkLabel(self.scrollable_frame, text="Zgłoszenie awarii", font=("Arial", 24), text_color="white")
-        self.header.pack(pady=15)
+        # Scrollable frame w razie potrzeby
+        self.scrollable_frame = ctk.CTkScrollableFrame(self, width=1150, height=750, corner_radius=15)
+        self.scrollable_frame.pack(pady=20, padx=20)
 
         # Pola formularza
         self.fields = {
@@ -39,19 +37,19 @@ class FailureWindow(ctk.CTkToplevel):
             "Osoba niwelująca": ctk.CTkEntry(self.scrollable_frame)
         }
 
+        # Wartości domyślne
         self.fields["Dział"].set("Utrzymanie ruchu")
         self.fields["Kategoria awarii"].set("Mechaniczna")
         self.fields["Typ awarii"].set("Błąd czujnika")
-
-        # Ustaw aktualną datę i godzinę
         self.fields["Data zgłoszenia (YYYY-MM-DD)"].insert(0, datetime.now().strftime("%Y-%m-%d"))
         self.fields["Godzina zgłoszenia (HH:MM)"].insert(0, datetime.now().strftime("%H:%M"))
 
+        # Wyświetlenie pól
         for label, widget in self.fields.items():
-            ctk.CTkLabel(self.scrollable_frame, text=label, text_color="white").pack(pady=(10, 0))
+            ctk.CTkLabel(self.scrollable_frame, text=label, text_color="white", anchor="w").pack(fill="x", pady=(8, 0), padx=10)
             widget.pack(padx=10, fill="x")
 
-        # Ramka na przyciski, zawsze na dole
+        # Ramka z przyciskami
         self.bottom_frame = ctk.CTkFrame(self, fg_color="#2b2b2b")
         self.bottom_frame.pack(pady=10)
 
@@ -98,10 +96,11 @@ class FailureWindow(ctk.CTkToplevel):
             text.insert("end", "Brak zgłoszonych awarii.")
         else:
             for f in failures:
-                entry = "\n".join([f"{k}: {v}" for k, v in zip(db_utils.FAILURE_FIELDS, f)])
+                entry = "\n".join([f"{k}: {v}" for k, v in zip(db_utils.FAILURE_HEADERS, f)])
                 text.insert("end", entry + "\n" + "-" * 80 + "\n")
 
-# Funkcja pomocnicza dla main.py:
+
+# Funkcja pomocnicza dla main_menu:
 def open_failure_window(username, return_callback):
-    window = FailureWindow(return_callback, username)
-    window.grab_set()  # modalne okno
+    window = FailureWindow(username, return_callback)
+    window.grab_set()  # Tryb modalny

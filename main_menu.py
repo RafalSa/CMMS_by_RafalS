@@ -21,8 +21,8 @@ def show_main_menu(username):
     title.pack(pady=(30, 40))
 
     def open_subwindow(func):
-        window.destroy()
-        func(username, show_main_menu)
+        window.withdraw()
+        func(username, lambda: [window.deiconify()])
 
     btn_tasks = ctk.CTkButton(frame, text="Zarządzaj zadaniami", width=300, height=50, font=ctk.CTkFont(size=16), command=lambda: open_subwindow(show_tasks_window))
     btn_tasks.pack(pady=10)
@@ -40,3 +40,7 @@ def show_main_menu(username):
     btn_logout.pack(pady=(40, 20))
 
     window.mainloop()
+
+    def on_close(self):
+        self.destroy()
+        self.return_callback()

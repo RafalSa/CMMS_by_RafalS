@@ -2,8 +2,8 @@ import sqlite3
 
 DB_PATH = 'cmms.db'
 
-# Stałe do czytelnego wyświetlania danych w historii
-FAILURE_FIELDS = [
+# Nagłówki do wyświetlania historii
+FAILURE_HEADERS = [
     "Użytkownik", "Obszar", "Podsystem", "Podsystem funkcjonalny", "Data",
     "Zmiana", "Godzina zgłoszenia", "Godzina zakończenia", "Czas przestoju (min)",
     "Dział", "Kategoria", "Typ awarii", "Opis awarii", "Osoba niwelująca"
@@ -25,11 +25,11 @@ def create_tables():
     )
     ''')
 
-    # Uwaga: ta linia usuwa tabelę 'failures' za każdym razem!
+    # UWAGA: resetuje dane przy każdym uruchomieniu
     c.execute('DROP TABLE IF EXISTS failures')
 
     c.execute('''
-    CREATE TABLE IF NOT EXISTS failures (
+    CREATE TABLE failures (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user TEXT NOT NULL,
         area TEXT NOT NULL,
