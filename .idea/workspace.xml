@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03e4cc16-c28f-46f1-82d4-4aa3ad2a60f3" name="Changes" comment="change window">
+    <list default="true" id="03e4cc16-c28f-46f1-82d4-4aa3ad2a60f3" name="Changes" comment="add history for failure_window.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmms.db" beforeDir="false" afterPath="$PROJECT_DIR$/cmms.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/failure_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/failure_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpm_module.py" beforeDir="false" afterPath="$PROJECT_DIR$/tpm_module.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750863407683</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add history for failure_window.py">
+      <option name="closed" value="true" />
+      <created>1750952474003</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750952474003</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +268,8 @@
     <MESSAGE value="add window and database" />
     <MESSAGE value="add history failure" />
     <MESSAGE value="change window" />
-    <option name="LAST_COMMIT_MESSAGE" value="change window" />
+    <MESSAGE value="add history for failure_window.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="add history for failure_window.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

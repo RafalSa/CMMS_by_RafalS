@@ -1,8 +1,8 @@
 import sqlite3
+from datetime import date
 
 DB_PATH = 'cmms.db'
 
-# Nagłówki do wyświetlania historii
 FAILURE_HEADERS = [
     "Użytkownik", "Obszar", "Podsystem", "Podsystem funkcjonalny", "Data",
     "Zmiana", "Godzina zgłoszenia", "Godzina zakończenia", "Czas przestoju (min)",
@@ -16,6 +16,7 @@ def create_tables():
     conn = connect()
     c = conn.cursor()
 
+    # Tabela użytkowników
     c.execute('''
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,9 +26,8 @@ def create_tables():
     )
     ''')
 
-    # UWAGA: resetuje dane przy każdym uruchomieniu
+    # Tabela awarii
     c.execute('DROP TABLE IF EXISTS failures')
-
     c.execute('''
     CREATE TABLE failures (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,6 +45,16 @@ def create_tables():
         failure_type TEXT NOT NULL,
         failure_description TEXT NOT NULL,
         resolver TEXT NOT NULL
+    )
+    ''')
+
+    # Tabela zadań TPM
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS tpm_tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        description TEXT NOT NULL,
+        date TEXT NOT NULL,
+        category TEXT NOT NULL
     )
     ''')
 
@@ -114,3 +124,22 @@ def get_failure_history():
     rows = cursor.fetchall()
     conn.close()
     return rows
+
+def add_tpm_task(description, date, category):
+    conn = connect()
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO tpm_tasks (description, date, category)
+        VALUES (?, ?, ?)
+    ''', (description, date, category))
+    conn.commit()
+    conn.close()
+
+def get_today_tpm_tasks():
+    today_str = date.today().isoformat()
+    conn = connect()
+    c = conn.cursor()
+    c.execute('SELECT task_name, task_type FROM tpm_tasks WHERE date = ?', (today_str,))
+    tasks = c.fetchall()
+    conn.close()
+    return tasks
