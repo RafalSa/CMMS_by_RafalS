@@ -49,14 +49,16 @@ def create_tables():
     ''')
 
     # Tabela zadań TPM
+    c.execute('DROP TABLE IF EXISTS tpm_tasks')
     c.execute('''
-    CREATE TABLE IF NOT EXISTS tpm_tasks (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        description TEXT NOT NULL,
-        date TEXT NOT NULL,
-        category TEXT NOT NULL
-    )
-    ''')
+        CREATE TABLE tpm_tasks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT NOT NULL,
+            field TEXT NOT NULL,
+            type TEXT NOT NULL,
+            description TEXT NOT NULL
+        )
+        ''')
 
     conn.commit()
     conn.close()
@@ -125,13 +127,10 @@ def get_failure_history():
     conn.close()
     return rows
 
-def add_tpm_task(description, date, category):
+def add_tpm_task(date, field, type_, desc):
     conn = connect()
     c = conn.cursor()
-    c.execute('''
-        INSERT INTO tpm_tasks (description, date, category)
-        VALUES (?, ?, ?)
-    ''', (description, date, category))
+    c.execute("INSERT INTO tpm_tasks (date, field, type, description) VALUES (?, ?, ?, ?)", (date, field, type_, desc))
     conn.commit()
     conn.close()
 
@@ -139,7 +138,23 @@ def get_today_tpm_tasks():
     today_str = date.today().isoformat()
     conn = connect()
     c = conn.cursor()
-    c.execute('SELECT task_name, task_type FROM tpm_tasks WHERE date = ?', (today_str,))
+    # Poprawka tutaj:
+    c.execute("SELECT date, field, type, description FROM tpm_tasks WHERE date = ?", (today_str,))
     tasks = c.fetchall()
     conn.close()
     return tasks
+
+def get_tpm_tasks():
+    conn = connect()
+    c = conn.cursor()
+    c.execute("SELECT id, date, field, type, description FROM tpm_tasks")
+    tasks = c.fetchall()
+    conn.close()
+    return tasks
+
+def update_tpm_task(old_date, date, field, type_, desc):
+    conn = connect()
+    c = conn.cursor()
+    c.execute("UPDATE tpm_tasks SET date=?, field=?, type=?, description=? WHERE date=?", (date, field, type_, desc, old_date))
+    conn.commit()
+    conn.close()

@@ -4,6 +4,15 @@ from tkinter import messagebox
 from datetime import date
 from db_utils import get_today_tpm_tasks
 
+# Błąd "ValueError: too many values to unpack (expected 2)" oznacza, że funkcja `get_today_tpm_tasks()` zwraca 4 kolumny,
+# a Ty próbujesz rozpakować je tylko do 2 zmiennych: (desc, category)
+
+# Zgodnie z kodem funkcji:
+# c.execute("SELECT date, field, type, description FROM tpm_tasks WHERE date = ?", (today_str,))
+# otrzymujesz: (date, field, type, description)
+
+# Rozwiązanie: Popraw rozpakowywanie zmiennych:
+
 def print_tpm():
     tasks = get_today_tpm_tasks()
     if not tasks:
@@ -12,8 +21,9 @@ def print_tpm():
 
     today_str = date.today().strftime("%d.%m.%Y")
     content = f"Zadania TPM na dziś ({today_str}):\n\n"
-    for i, (desc, category) in enumerate(tasks, 1):
-        content += f"{i}. [{category}] {desc}\n"
+
+    for i, (task_date, field, task_type, desc) in enumerate(tasks, 1):
+        content += f"{i}. [{field} | {task_type}] {desc}\n"
 
     # Zapisz do tymczasowego pliku i wyślij do drukarki
     try:
