@@ -60,6 +60,19 @@ def create_tables():
         )
         ''')
 
+    # Tabela magazynowa
+    c.execute("DROP TABLE IF EXISTS inventory")
+    c.execute('''
+        CREATE TABLE inventory (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            sap_number TEXT NOT NULL,
+            reference_number TEXT NOT NULL,
+            quantity INTEGER NOT NULL,
+            location TEXT NOT NULL
+        )
+    ''')
+
     conn.commit()
     conn.close()
 
@@ -156,5 +169,34 @@ def update_tpm_task(old_date, date, field, type_, desc):
     conn = connect()
     c = conn.cursor()
     c.execute("UPDATE tpm_tasks SET date=?, field=?, type=?, description=? WHERE date=?", (date, field, type_, desc, old_date))
+    conn.commit()
+    conn.close()
+
+
+def get_inventory_items(search_query=""):
+    conn = connect()
+    c = conn.cursor()
+    if search_query:
+        search_query = f"%{search_query}%"
+        c.execute("""
+            SELECT id, name, sap_number, reference_number, quantity, location
+            FROM inventory
+            WHERE name LIKE ? OR CAST(id AS TEXT) LIKE ?
+        """, (search_query, search_query))
+    else:
+        c.execute("SELECT id, name, sap_number, reference_number, quantity, location FROM inventory")
+
+    results = c.fetchall()
+    conn.close()
+    return results
+
+
+def add_inventory_item(name, sap_number, reference_number, quantity, location):
+    conn = connect()
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO inventory (name, sap_number, reference_number, quantity, location)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (name, sap_number, reference_number, quantity, location))
     conn.commit()
     conn.close()
