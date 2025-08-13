@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03e4cc16-c28f-46f1-82d4-4aa3ad2a60f3" name="Changes" comment="add file 2" />
+    <list default="true" id="03e4cc16-c28f-46f1-82d4-4aa3ad2a60f3" name="Changes" comment="add file 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -265,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755101982053</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add file 3">
+      <option name="closed" value="true" />
+      <created>1755102253455</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1755102253455</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +347,8 @@
     <MESSAGE value="add file" />
     <MESSAGE value="add file 1" />
     <MESSAGE value="add file 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="add file 2" />
+    <MESSAGE value="add file 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="add file 3" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
