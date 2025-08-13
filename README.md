@@ -52,6 +52,9 @@ It provides tools for task scheduling, failure reporting, and inventory manageme
 **Inventory View**  
 ![Inventory](docs/screenshots/inventory.png)
 
+**Menu View**  
+![Menu](docs/screenshots/main.png)
+
 ---
 
 ## 🛠 Technology Stack
