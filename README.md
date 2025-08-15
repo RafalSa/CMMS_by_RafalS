@@ -69,25 +69,25 @@ It provides tools for task scheduling, failure reporting, and inventory manageme
 
 ## 📂 Project Structure
 
-CMMS_by_RafalS/
-│
-├── LICENSE # Project license
-├── README.md # Project documentation
-├── cmms.db # SQLite database
-│
-├── db_utils.py # Database operations
-├── failure_report.py # Failure reporting logic
-├── failure_window.py # Failure reporting UI
-├── inventory_view.py # Inventory list display
-├── inventory_window.py # Inventory search UI
-├── login_window.py # Login window
-├── main.py # Application entry point
-├── main_menu.py # Main navigation menu
-├── print_tasks_window.py # Print TPM tasks window
-├── register_window.py # User registration window
-├── setup_db.py # Database initialization
-├── tasks_window.py # TPM task management UI
-└── tpm_module.py # TPM task handling logic
+CMMS_by_RafalS/  
+│  
+├── LICENSE # Project license  
+├── README.md # Project documentation  
+├── cmms.db # SQLite database  
+│  
+├── db_utils.py # Database operations  
+├── failure_report.py # Failure reporting logic  
+├── failure_window.py # Failure reporting UI  
+├── inventory_view.py # Inventory list display  
+├── inventory_window.py # Inventory search UI  
+├── login_window.py # Login window  
+├── main.py # Application entry point  
+├── main_menu.py # Main navigation menu  
+├── print_tasks_window.py # Print TPM tasks window  
+├── register_window.py # User registration window  
+├── setup_db.py # Database initialization  
+├── tasks_window.py # TPM task management UI  
+└── tpm_module.py # TPM task handling logic  
 
 
 ## 👥 Authors
